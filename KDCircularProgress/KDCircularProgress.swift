@@ -136,11 +136,11 @@ public class KDCircularProgress: UIView, CAAnimationDelegate {
         }
     }
     
-    @IBInspectable public var glowMode: KDCircularProgressGlowMode = .forward {
-        didSet {
-            progressLayer.glowMode = glowMode
-        }
-    }
+//    @IBInspectable public var glowMode: KDCircularProgressGlowMode = .forward {
+//        didSet {
+//            progressLayer.glowMode = glowMode
+//        }
+//    }
     
     @IBInspectable public var progressThickness: CGFloat = 0.4 {//Between 0 and 1
         didSet {
@@ -169,7 +169,7 @@ public class KDCircularProgress: UIView, CAAnimationDelegate {
         }
     }
     
-    public var progressColors: [UIColor] {
+    @IBInspectable public var progressColors: [UIColor] {
         get {
             return progressLayer.colorsArray
         }
@@ -189,6 +189,7 @@ public class KDCircularProgress: UIView, CAAnimationDelegate {
     
     override public init(frame: CGRect) {
         super.init(frame: frame)
+        isUserInteractionEnabled = false
         setInitialValues()
         refreshValues()
         checkAndSetIBColors()
@@ -202,6 +203,7 @@ public class KDCircularProgress: UIView, CAAnimationDelegate {
     required public init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)!
         translatesAutoresizingMaskIntoConstraints = false
+        isUserInteractionEnabled = false
         setInitialValues()
         refreshValues()
     }
@@ -233,7 +235,7 @@ public class KDCircularProgress: UIView, CAAnimationDelegate {
         progressLayer.lerpColorMode = lerpColorMode
         progressLayer.gradientRotateSpeed = gradientRotateSpeed
         progressLayer.glowAmount = glowAmount
-        progressLayer.glowMode = glowMode
+//        progressLayer.glowMode = glowMode
         progressLayer.progressThickness = progressThickness/2
         progressLayer.trackColor = trackColor
         progressLayer.trackThickness = trackThickness/2
@@ -274,7 +276,6 @@ public class KDCircularProgress: UIView, CAAnimationDelegate {
         animation.toValue = toAngle
         animation.duration = animationDuration
         animation.delegate = self
-        animation.isRemovedOnCompletion = false
         angle = toAngle
         animationCompletionBlock = completion
         
