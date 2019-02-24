@@ -233,7 +233,7 @@ public class KDCircularProgress: UIView, CAAnimationDelegate {
         progressLayer.lerpColorMode = lerpColorMode
         progressLayer.gradientRotateSpeed = gradientRotateSpeed
         progressLayer.glowAmount = glowAmount
-        progressLayer.glowMode = glowMode
+        //progressLayer.glowMode = glowMode
         progressLayer.progressThickness = progressThickness/2
         progressLayer.trackColor = trackColor
         progressLayer.trackThickness = trackThickness/2
